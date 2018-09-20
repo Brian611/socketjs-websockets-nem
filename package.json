@@ -1,0 +1,16 @@
+{
+  "name": "sockjs-websockets",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "stompjs": "^2.3.3",
+    "ws": "^6.0.0"
+  }
+}

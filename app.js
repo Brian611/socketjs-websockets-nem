@@ -22,19 +22,19 @@ wss.on('connection', function connection(ws) {
             function (data) {
                 var body = JSON.parse(data.body);
                 console.log("unconfirmed: ", body);
-                ws.send(JSON.stringify(body));
+                ws.send(JSON.stringify({ unconfirmed: body }));
             });
 
         stompClient.subscribe(`/transactions/${addr}`,
             function (data) {
                 var body = JSON.parse(data.body);
                 console.log("confirmed: ", body);
-                ws.send(JSON.stringify(body));
+                ws.send(JSON.stringify({ confirmed: body }));
             });
     });
 
     ws.on('close', function close() {
         console.log(`disconnected : ${addr}`);
     });
-    
+
 });

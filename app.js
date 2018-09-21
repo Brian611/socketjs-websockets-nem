@@ -5,7 +5,7 @@ const WebSocket = require('ws');
 const wss = new WebSocket.Server({ port: 3002 });
 
 wss.on('connection', function connection(ws) {
-
+    let addr = ""; 
     ws.on('message', function incoming(message) {
         let response = JSON.parse(message);
         if (response.eventType == "address") {

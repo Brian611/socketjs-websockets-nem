@@ -18,7 +18,6 @@ function reconnect() {
 
 // Connect using connector
 function connect(connector, ws) {
-
     return connector.connect().then(function () {
         // Set time
         date = new Date();
@@ -40,7 +39,7 @@ function connect(connector, ws) {
         });
 
         // Show event
-        console.log(date.toLocaleString() + ': Subscribing to unconfirmed transactions of ' + connector.endpoint.address);
+        console.log(date.toLocaleString() + ': Subscribing to unconfirmed transactions of ' + connector.address);
 
         // Subscribe to unconfirmed transactions channel
         nem.com.websockets.subscribe.account.transactions.unconfirmed(connector, function (res) {
@@ -54,7 +53,7 @@ function connect(connector, ws) {
         });
 
         // Show event
-        console.log(date.toLocaleString() + ': Subscribing to confirmed transactions of ' + connector.endpoint.address);
+        console.log(date.toLocaleString() + ': Subscribing to confirmed transactions of ' + connector.address);
 
         // Subscribe to confirmed transactions channel
         nem.com.websockets.subscribe.account.transactions.confirmed(connector, function (res) {

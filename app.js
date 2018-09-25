@@ -7,9 +7,9 @@ const wss = new WebSocket.Server({ port: 3002 });
 const timeout = ms => new Promise(res => setTimeout(res, ms))
 
 wss.on('connection', (ws) => {
-
+    let addr = "";
     ws.on('message', async function incoming(message) {
-        let addr = "";
+
         let response = JSON.parse(message);
         if (response.eventType == "address") {
             addr = response.addr;
